@@ -43,9 +43,9 @@ def obs_diff(obs1, obs2):
     ants_to_flag = np.array(list(ants1.symmetric_difference(ants2)))
 
     if(ants_to_flag.size != 0):
-    	print("Antennas to flag: " + str(ants_to_flag))
+        print("Antennas to flag: " + str(ants_to_flag))
     else:
-    	print("No antennas to flag")
+        print("No antennas to flag")
 
     #EarthLocation._get_site_registry(force_download=True)
     #time to flag
