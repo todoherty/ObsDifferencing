@@ -16,15 +16,18 @@ __date__ = '2021-04-13'
 __citation__ = "Add cite here."
 
 
-def obs_diff(obs1, obs2):
+def obs_diff(obs1, obs2, outfile):
     """
     Parameters:
     ----------
     obs1 : str
         Path for observation1 measurement set
+
     obs2 : str
         Path for observation2 measurement set
 
+    outfile : str
+        Outputfilename
     Returns:
     -------
     None
@@ -102,12 +105,11 @@ def obs_diff(obs1, obs2):
     else:
         print("No time flags for obs2")
 
-        #Creation of new differenced ms
-    obs12 = root + "{0}-{1}-diff/{0}-{1}-diff.ms".format(obsid1, obsid2)
+    #Creation of new differenced ms
     # Have to make a copy first
-    mset_diff = mset1.copy( obs12, deep = True)
+    mset_diff = mset1.copy(outfile, deep = True)
     # Open this copy
-    mset_diff = table( obs12, readonly = False)
+    mset_diff = table(outfile, readonly = False)
 
     #Get corrected data from which bad data is to be removed
     data1 = mset1.getcol("CORRECTED_DATA")
@@ -212,6 +214,8 @@ if __name__ == "__main__":
     parser = ArgumentParser(prog='obsDifferencing', prefix_chars='-')
     parser.add_argument('ms', nargs=2, default=None,
                         help='Measurement sets (2) to difference (A-B).')
+    parser.add_argument('out', nargs=1, default=None,
+                        help='Output measurement set')
     parser.add_argument('--root', '-r', dest='root', default='.',
                         help='Root directory for processing.')
     parser.add_argument('--cite', dest='cite', default=False, action='store_true',
