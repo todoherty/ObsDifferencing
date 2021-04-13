@@ -209,8 +209,8 @@ def obs_diff(obs1, obs2):
     return
 
 if __name__ == "__main__":
-    parser = ArgumentParser(prog='obsDifferencing', prfix_chars='')
-    parser.add_argument('ms', nargs=2, dest='ms', default=None,
+    parser = ArgumentParser(prog='obsDifferencing', prefix_chars='-')
+    parser.add_argument('ms', nargs=2, default=None,
                         help='Measurement sets (2) to difference (A-B).')
     parser.add_argument('--root', '-r', dest='root', default='.',
                         help='Root directory for processing.')
