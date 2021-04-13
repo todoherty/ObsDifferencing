@@ -232,4 +232,6 @@ if __name__ == "__main__":
 
     obs1 = os.path.join(options.root, options.ms[0])
     obs2 = os.path.join(options.root, options.ms[1])
-    print(obs1, obs2)
+    out = os.path.join(options.root, options.out[0])
+    print("Diff of {0} - {1} => {2}".format(obs1, obs2, out))
+    obs_diff(obs1,obs2,out)
