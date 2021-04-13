@@ -1,12 +1,10 @@
-#!/usr/bin/env python
-
-from __future__ import print_function
+#! /usr/bin/env python
 
 import numpy as np
 import sys
 import os
 from datetime import datetime
-from casacore.tables import table, taql, maketabdesc, makescacoldesc
+from casacore.tables import table
 from argparse import ArgumentParser
 from astropy.time import Time
 from astropy.coordinates import EarthLocation
